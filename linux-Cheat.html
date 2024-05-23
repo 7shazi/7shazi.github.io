@@ -7,7 +7,12 @@
 </head>
 <body>
     <li>
-      <a href="">THis is temporary text</a>  
+      <h5>Filter out files that are exactly 1033 bytes in size and not executable:</h5>  
+      <p>find /path/to/directory -type f -size 1033c -exec ls -lh {} + | awk '$1 !~ /x/ {print $9, $5}'</p>
+      <p>    find /path/to/directory -type f -size 1033c: Finds files exactly 1033 bytes in size.
+        -exec ls -lh {} +: Executes ls -lh on the found files to get human-readable sizes.
+        awk '$1 !~ /x/ {print $9, $5}': Filters out executable files and prints the filename and human-readable size.</p>
+        
     </li>
     
 </body>
